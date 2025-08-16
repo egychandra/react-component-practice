@@ -7,5 +7,5 @@ export default defineConfig({
   plugins: [
     tailwindcss(), react()
   ],
-  base: '/react-component-practice/',
+  base: "/react-component-practice/"
 })

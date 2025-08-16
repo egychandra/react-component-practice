@@ -11,7 +11,7 @@ import FetchData from "./components/FetchData"
 
 function App() {
   return (
-    <Router>
+    <Router basename="/react-component-practice/">
       <div className="flex">
         <Sidebar />
         <div className="p-6 mx-auto max-w-4xl">
