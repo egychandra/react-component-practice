@@ -1,9 +1,9 @@
-name: Deploy Vite app to GitHub Pages
+name: Deploy Vite app with fallback 404.html
 
 on:
   push:
     branches:
-      - main  # jalankan saat push ke branch main
+      - main  # jalankan workflow setiap push ke branch main
 
 permissions:
   contents: read
@@ -28,10 +28,13 @@ jobs:
       - name: Build Vite project
         run: npm run build
 
+      - name: Copy index.html to 404.html
+        run: cp dist/index.html dist/404.html
+
       - name: Upload build artifacts
         uses: actions/upload-pages-artifact@v3
         with:
-          path: ./dist  # folder hasil build Vite
+          path: ./dist
 
   deploy:
     runs-on: ubuntu-latest
